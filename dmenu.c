@@ -1,6 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-+	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask |
-+	                 ButtonPressMask;;
 #include <ctype.h>
 #include <locale.h>
 #include <stdio.h>
@@ -23,6 +21,7 @@
 
 /* patches */
 #define MOUSESUPPORT
+/* #define XYZ */
 
 /* macros */
 #define INTERSECT(x,y,w,h,r)  (MAX(0, MIN((x)+(w),(r).x_org+(r).width)  - MAX((x),(r).x_org)) \
@@ -42,6 +41,11 @@ struct item {
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
+#ifdef XYZ
+static int dmx = 0; /* put dmenu at this x offset */
+static int dmy = 0; /* put dmenu at this y offset (measured from the bottom if topbar is 0) */
+static unsigned int dmw = 0; /* make dmenu this wide */
+#endif
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
@@ -506,7 +510,6 @@ draw:
 	drawmenu();
 }
 
-// mouse support
 #ifdef MOUSESUPPORT
 static void
 buttonpress(XEvent *e)
@@ -764,9 +767,15 @@ setup(void)
 				if (INTERSECT(x, y, 1, 1, info[i]))
 					break;
 
+#ifdef XYZ
+		x = info[i].x_org + dmx;
+		y = info[i].y_org + (topbar ? dmy : info[i].height - mh - dmy);
+		mw = (dmw>0 ? dmw : info[i].width);
+#else
 		x = info[i].x_org;
 		y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
 		mw = info[i].width;
+#endif
 		XFree(info);
 	} else
 #endif
@@ -774,9 +783,15 @@ setup(void)
 		if (!XGetWindowAttributes(dpy, parentwin, &wa))
 			die("could not get embedding window attributes: 0x%lx",
 			    parentwin);
+#ifdef XYZ
+		x = dmx;
+		y = topbar ? dmy : wa.height - mh - dmy;
+		mw = (dmw>0 ? dmw : wa.width);
+#else
 		x = 0;
 		y = topbar ? 0 : wa.height - mh;
 		mw = wa.width;
+#endif
 	}
 	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
 	inputw = MIN(inputw, mw/3);
@@ -822,6 +837,7 @@ static void
 usage(void)
 {
 	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+	      "             [-h height] [-x xoffset] [-y yoffset] [-w width]\n"
 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
 	exit(1);
 }
@@ -849,6 +865,14 @@ main(int argc, char *argv[])
 		/* these options take one argument */
 		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
 			lines = atoi(argv[++i]);
+#ifdef XYZ
+		else if (!strcmp(argv[i], "-x"))   /* window x offset */
+			dmx = atoi(argv[++i]);
+		else if (!strcmp(argv[i], "-y"))   /* window y offset (from bottom up if -b) */
+			dmy = atoi(argv[++i]);
+		else if (!strcmp(argv[i], "-w"))   /* make dmenu this wide */
+			dmw = atoi(argv[++i]);
+#endif
 		else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */

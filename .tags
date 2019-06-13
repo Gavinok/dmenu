@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
 $(OBJ)	Makefile	/^$(OBJ): arg.h config.h config.mk drw.h$/;"	t
 .c.o	Makefile	/^.c.o:$/;"	t
 ARGBEGIN	arg.h	/^#define ARGBEGIN	/;"	d
@@ -39,6 +39,7 @@ LIBS	config.mk	/^LIBS = -L$(X11LIB) -lX11 $(XINERAMALIBS) $(FREETYPELIBS)$/;"	m
 MANPREFIX	config.mk	/^MANPREFIX = $(PREFIX)\/share\/man$/;"	m
 MAX	util.h	/^#define MAX(/;"	d
 MIN	util.h	/^#define MIN(/;"	d
+MOUSESUPPORT	dmenu.c	/^#define MOUSESUPPORT$/;"	d	file:
 NAME	dmenu.1	/^.SH NAME$/;"	s	title:DMENU
 NAME	stest.1	/^.SH NAME$/;"	s	title:STEST
 OBJ	Makefile	/^OBJ = $(SRC:.c=.o)$/;"	m
@@ -75,8 +76,9 @@ background	config.h	/^static const char background[]  = "#111314";$/;"	v	typeref
 bh	dmenu.c	/^static int bh, mw, mh;$/;"	v	typeref:typename:int	file:
 black1	config.h	/^static const char black1[]      = "#505050";$/;"	v	typeref:typename:const char[]
 black2	config.h	/^static const char black2[]      = "#505050";$/;"	v	typeref:typename:const char[]
-blue1	config.h	/^static const char blue1[]       = "#66899D";$/;"	v	typeref:typename:const char[]
+blue1	config.h	/^static const char blue1[]       = "#7D8FA3";$/;"	v	typeref:typename:const char[]
 blue2	config.h	/^static const char blue2[]       = "#66899D";$/;"	v	typeref:typename:const char[]
+buttonpress	dmenu.c	/^buttonpress(XEvent *e)$/;"	f	typeref:typename:void	file:
 calcoffsets	dmenu.c	/^calcoffsets(void)$/;"	f	typeref:typename:void	file:
 cistrstr	dmenu.c	/^cistrstr(const char *s, const char *sub)$/;"	f	typeref:typename:char *	file:
 clean	Makefile	/^clean:$/;"	t
@@ -93,6 +95,9 @@ cyan2	config.h	/^static const char cyan2[]       = "#527C77";$/;"	v	typeref:type
 die	util.c	/^die(const char *fmt, ...) {$/;"	f	typeref:typename:void
 dist	Makefile	/^dist: clean$/;"	t
 dmenu	Makefile	/^dmenu: dmenu.o drw.o util.o$/;"	t
+dmw	dmenu.c	/^static unsigned int dmw = 0; \/* make dmenu this wide *\/$/;"	v	typeref:typename:unsigned int	file:
+dmx	dmenu.c	/^static int dmx = 0; \/* put dmenu at this x offset *\/$/;"	v	typeref:typename:int	file:
+dmy	dmenu.c	/^static int dmy = 0; \/* put dmenu at this y offset (measured from the bottom if topbar is 0) *\/$/;"	v	typeref:typename:int	file:
 dpy	dmenu.c	/^static Display *dpy;$/;"	v	typeref:typename:Display *	file:
 dpy	drw.h	/^	Display *dpy;$/;"	m	struct:Fnt	typeref:typename:Display *
 dpy	drw.h	/^	Display *dpy;$/;"	m	struct:__anon0f5116480308	typeref:typename:Display *
