@@ -28,7 +28,7 @@ static const char yellow1[]     = "#ddb26f";
 static const char yellow2[]     = "#E2995C";
                                           
                                           
-static const char blue1[]       = "#66899D";
+static const char blue1[]       = "#7D8FA3";
 static const char blue2[]       = "#66899D";
                                           
                                           
@@ -46,8 +46,8 @@ static const char white2[]      = "#f5f5f5";
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
 	[SchemeNorm] = { blue1, background },
-	[SchemeSel] = { red2, background },
-	[SchemeOut] = { "#000000", "#8abeb7" },
+	[SchemeSel] = { background, blue1},
+	[SchemeOut] = { blue1, foreground },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
