@@ -72,12 +72,7 @@ __anon1b2399ef0103	dmenu.c	/^enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast
 all	Makefile	/^all: options dmenu stest$/;"	t
 appenditem	dmenu.c	/^appenditem(struct item *item, struct item **list, struct item **last)$/;"	f	typeref:typename:void	file:
 argv0	stest.c	/^char *argv0;$/;"	v	typeref:typename:char *
-background	config.h	/^static const char background[]  = "#111314";$/;"	v	typeref:typename:const char[]
 bh	dmenu.c	/^static int bh, mw, mh;$/;"	v	typeref:typename:int	file:
-black1	config.h	/^static const char black1[]      = "#505050";$/;"	v	typeref:typename:const char[]
-black2	config.h	/^static const char black2[]      = "#505050";$/;"	v	typeref:typename:const char[]
-blue1	config.h	/^static const char blue1[]       = "#7D8FA3";$/;"	v	typeref:typename:const char[]
-blue2	config.h	/^static const char blue2[]       = "#66899D";$/;"	v	typeref:typename:const char[]
 buttonpress	dmenu.c	/^buttonpress(XEvent *e)$/;"	f	typeref:typename:void	file:
 calcoffsets	dmenu.c	/^calcoffsets(void)$/;"	f	typeref:typename:void	file:
 cistrstr	dmenu.c	/^cistrstr(const char *s, const char *sub)$/;"	f	typeref:typename:char *	file:
@@ -90,8 +85,6 @@ config.h	Makefile	/^config.h:$/;"	t
 curr	dmenu.c	/^static struct item *prev, *curr, *next, *sel;$/;"	v	typeref:struct:item **	file:
 cursor	dmenu.c	/^static size_t cursor;$/;"	v	typeref:typename:size_t	file:
 cursor	drw.h	/^	Cursor cursor;$/;"	m	struct:__anon0f5116480108	typeref:typename:Cursor
-cyan1	config.h	/^static const char cyan1[]       = "#53cdbd";$/;"	v	typeref:typename:const char[]
-cyan2	config.h	/^static const char cyan2[]       = "#527C77";$/;"	v	typeref:typename:const char[]
 die	util.c	/^die(const char *fmt, ...) {$/;"	f	typeref:typename:void
 dist	Makefile	/^dist: clean$/;"	t
 dmenu	Makefile	/^dmenu: dmenu.o drw.o util.o$/;"	t
@@ -127,14 +120,11 @@ flag	stest.c	/^static int flag[26];$/;"	v	typeref:typename:int[26]	file:
 fonts	config.def.h	/^static const char *fonts[] = {$/;"	v	typeref:typename:const char * []
 fonts	config.h	/^static const char *fonts[] = {$/;"	v	typeref:typename:const char * []
 fonts	drw.h	/^	Fnt *fonts;$/;"	m	struct:__anon0f5116480308	typeref:typename:Fnt *
-foreground	config.h	/^static const char foreground[]  = "#B7BBB7";$/;"	v	typeref:typename:const char[]
 fstrncmp	dmenu.c	/^static int (*fstrncmp)(const char *, const char *, size_t) = strncmp;$/;"	v	typeref:typename:int (*)(const char *,const char *,size_t)	file:
 fstrstr	dmenu.c	/^static char *(*fstrstr)(const char *, const char *) = strstr;$/;"	v	typeref:typename:char * (*)(const char *,const char *)	file:
 gc	drw.h	/^	GC gc;$/;"	m	struct:__anon0f5116480308	typeref:typename:GC
 grabfocus	dmenu.c	/^grabfocus(void)$/;"	f	typeref:typename:void	file:
 grabkeyboard	dmenu.c	/^grabkeyboard(void)$/;"	f	typeref:typename:void	file:
-green1	config.h	/^static const char green1[]      = "#acc267";$/;"	v	typeref:typename:const char[]
-green2	config.h	/^static const char green2[]      = "#acc267";$/;"	v	typeref:typename:const char[]
 h	drw.h	/^	unsigned int h;$/;"	m	struct:Fnt	typeref:typename:unsigned int
 h	drw.h	/^	unsigned int w, h;$/;"	m	struct:__anon0f5116480308	typeref:typename:unsigned int
 inputw	dmenu.c	/^static int inputw = 0, promptw;$/;"	v	typeref:typename:int	file:
@@ -147,8 +137,6 @@ left	dmenu.c	/^	struct item *left, *right;$/;"	m	struct:item	typeref:struct:item
 lines	config.def.h	/^static unsigned int lines      = 0;$/;"	v	typeref:typename:unsigned int
 lines	config.h	/^static unsigned int lines      = 0;$/;"	v	typeref:typename:unsigned int
 lrpad	dmenu.c	/^static int lrpad; \/* sum of left and right padding *\/$/;"	v	typeref:typename:int	file:
-magenta1	config.h	/^static const char magenta1[]    = "#e1a3ee";$/;"	v	typeref:typename:const char[]
-magenta2	config.h	/^static const char magenta2[]    = "#FF99FFf";$/;"	v	typeref:typename:const char[]
 main	dmenu.c	/^main(int argc, char *argv[])$/;"	f	typeref:typename:int
 main	stest.c	/^main(int argc, char *argv[])$/;"	f	typeref:typename:int
 match	dmenu.c	/^match(void)$/;"	f	typeref:typename:void	file:
@@ -174,8 +162,6 @@ prompt	config.def.h	/^static const char *prompt      = NULL;      \/* -p  option
 prompt	config.h	/^static const char *prompt      = NULL;      \/* -p  option; prompt to the left of input field *\/$/;"	v	typeref:typename:const char *
 promptw	dmenu.c	/^static int inputw = 0, promptw;$/;"	v	typeref:typename:int	file:
 readstdin	dmenu.c	/^readstdin(void)$/;"	f	typeref:typename:void	file:
-red1	config.h	/^static const char red1[]        = "#fb9fb1";$/;"	v	typeref:typename:const char[]
-red2	config.h	/^static const char red2[]        = "#B04C50";$/;"	v	typeref:typename:const char[]
 right	dmenu.c	/^	struct item *left, *right;$/;"	m	struct:item	typeref:struct:item **	file:
 root	dmenu.c	/^static Window root, parentwin, win;$/;"	v	typeref:typename:Window	file:
 root	drw.h	/^	Window root;$/;"	m	struct:__anon0f5116480308	typeref:typename:Window
@@ -204,8 +190,6 @@ utfmask	drw.c	/^static const unsigned char utfmask[UTF_SIZ + 1] = {0xC0, 0x80, 0
 utfmax	drw.c	/^static const long utfmax[UTF_SIZ + 1] = {0x10FFFF, 0x7F, 0x7FF, 0xFFFF, 0x10FFFF};$/;"	v	typeref:typename:const long[]	file:
 utfmin	drw.c	/^static const long utfmin[UTF_SIZ + 1] = {       0,    0,  0x80,  0x800,  0x10000};$/;"	v	typeref:typename:const long[]	file:
 w	drw.h	/^	unsigned int w, h;$/;"	m	struct:__anon0f5116480308	typeref:typename:unsigned int
-white1	config.h	/^static const char white1[]      = "#d0d0d0";$/;"	v	typeref:typename:const char[]
-white2	config.h	/^static const char white2[]      = "#f5f5f5";$/;"	v	typeref:typename:const char[]
 win	dmenu.c	/^static Window root, parentwin, win;$/;"	v	typeref:typename:Window	file:
 worddelimiters	config.def.h	/^static const char worddelimiters[] = " ";$/;"	v	typeref:typename:const char[]
 worddelimiters	config.h	/^static const char worddelimiters[] = " ";$/;"	v	typeref:typename:const char[]
@@ -213,5 +197,3 @@ xfont	drw.h	/^	XftFont *xfont;$/;"	m	struct:Fnt	typeref:typename:XftFont *
 xfont_create	drw.c	/^xfont_create(Drw *drw, const char *fontname, FcPattern *fontpattern)$/;"	f	typeref:typename:Fnt *	file:
 xfont_free	drw.c	/^xfont_free(Fnt *font)$/;"	f	typeref:typename:void	file:
 xic	dmenu.c	/^static XIC xic;$/;"	v	typeref:typename:XIC	file:
-yellow1	config.h	/^static const char yellow1[]     = "#ddb26f";$/;"	v	typeref:typename:const char[]
-yellow2	config.h	/^static const char yellow2[]     = "#E2995C";$/;"	v	typeref:typename:const char[]
