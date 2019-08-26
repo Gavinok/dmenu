@@ -8,7 +8,7 @@ static const char *fonts[] = {
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 
-#include "../colorschemes/dmenu/current.c"
+#include "../colorschemes/dmenu/current.h"
 
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
