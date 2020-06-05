@@ -42,11 +42,6 @@ struct item {
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
-#ifdef XYZ
-static int dmx = 0; /* put dmenu at this x offset */
-static int dmy = 0; /* put dmenu at this y offset (measured from the bottom if topbar is 0) */
-static unsigned int dmw = 0; /* make dmenu this wide */
-#endif
 #ifdef PASSWORD
 static int inputw = 0, promptw, passwd = 0;
 #else
@@ -793,7 +788,7 @@ setup(void)
 #ifdef XYZ
 		x = info[i].x_org + dmx;
 		y = info[i].y_org + (topbar ? dmy : info[i].height - mh - dmy);
-		mw = (dmw>0 ? dmw : info[i].width);
+		mw = (dmx>0 ? info[i].width - (2*dmx) : info[i].width);
 #else
 		x = info[i].x_org;
 		y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
@@ -809,7 +804,7 @@ setup(void)
 #ifdef XYZ
 		x = dmx;
 		y = topbar ? dmy : wa.height - mh - dmy;
-		mw = (dmw>0 ? dmw : wa.width);
+		mw = (dmx>0 ? info[i].width - (2*dmx) : info[i].width);
 #else
 		x = 0;
 		y = topbar ? 0 : wa.height - mh;
@@ -903,8 +898,6 @@ main(int argc, char *argv[])
 			dmx = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-y"))   /* window y offset (from bottom up if -b) */
 			dmy = atoi(argv[++i]);
-		else if (!strcmp(argv[i], "-w"))   /* make dmenu this wide */
-			dmw = atoi(argv[++i]);
 #endif
 		else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
